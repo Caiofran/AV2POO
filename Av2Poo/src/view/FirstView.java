@@ -105,6 +105,6 @@ public class FirstView {
 	}
 
 	public boolean checklogin(String login, String senha) {
-		return login.equals("usuario") && senha.equals("123");
+		return login.equals("admin") && senha.equals("admin");
 	}
 }
