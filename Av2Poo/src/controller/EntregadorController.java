@@ -17,17 +17,17 @@ public class EntregadorController {
 	}
 
 	public List<Entregador> read() {
-		List<Entregador> listaDeMissao = new ArrayList<Entregador>();
+		List<Entregador> listaDeEntregador = new ArrayList<Entregador>();
 		
 		try {
 			EntregadorDAO model = new EntregadorDAO();
-            listaDeMissao = model.read();
+            listaDeEntregador = model.read();
             		
 		} catch(Exception e) {
 			System.out.println("<Controller> Erro ao tentar ler Entregador: " + e);
 		}
 
-		return listaDeMissao;
+		return listaDeEntregador;
 	}
 
 	public void delete(Entregador missao) {
