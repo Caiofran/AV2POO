@@ -218,15 +218,15 @@ public class SecondView extends JFrame {
 		JButton btsend2 = new JButton("Enviar");
 		btsend2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Habilidades habilidade = new Habilidades();
-				habilidade.setCodigo(Integer.parseInt(textcod2.getText()));
-				habilidade.setNome(textname2.getText());
-				habilidade.setPoder(Integer.parseInt(textpower.getText()));
-				habilidade.setRankingHabilidade(textrank2.getText());
-				habilidade.setConsumoChackra(Integer.parseInt(textconsumo.getText()));
+				Entregador entregador = new Entregador();
+				entregador.setCodigo(Integer.parseInt(textcod2.getText()));
+				entregador.setNome(textname2.getText());
+				entregador.setPoder(Integer.parseInt(textpower.getText()));
+				entregador.setRankingHabilidade(textrank2.getText());
+				entregador.setConsumoChackra(Integer.parseInt(textconsumo.getText()));
 
-				HabilidadesController habilidadeInsert = new HabilidadesController();
-				habilidadeInsert.create(habilidade);
+				EntregadorController habilidadeInsert = new EntregadorController();
+				entregadorInsert.create(entregador);
 			}
 		});
 		btsend2.setBounds(292, 264, 72, 23);

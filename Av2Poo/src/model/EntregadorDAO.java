@@ -1,6 +1,6 @@
 package model;
 
-import bo.Habilidades;
+import bo.Entregador;
 import jdbc.ConnectionFactory;
 
 import java.sql.PreparedStatement;
@@ -10,23 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
 
-public class HabilidadesDAO {
-	public void create(Habilidades habilidade) {
+public class EntregadorDAO {
+	public void create(Entregador entregador) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "INSERT INTO HABILIDADES(CODIGO, NOME, PODER, RANKING_HABILIDADE, CONSUMO_CHACKRA) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO ENTREGADOR( NOME, TELEFONE, CPF, PLACA, PLACA) VALUES (?, ?, ?, ?, ?)";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(1, habilidade.getCodigo()); // primeiro parametro da query
-			stmt.setString(2, habilidade.getNome());
-			stmt.setInt(3, habilidade.getPoder());
-			stmt.setString(4, habilidade.getRankingHabilidade());
-			stmt.setInt(5, habilidade.getConsumoChackra());
+			stmt.setString(1, entregador.getNome()); // primeiro parametro da query
+			stmt.setInt(2, entregador.getTelefone());
+			stmt.setInt(3, entregador.getCpf());
+			stmt.setString(4, entregador.getPlaca());
+			stmt.setInt(5, entregador.getHabilitacao());
 
 			stmt.executeUpdate();
-			System.out.println("[HabilidadesDAO] Habilidade cadastrada com sucesso");
+			System.out.println("[EntregadorDAO] Entregador cadastrada com sucesso");
 
 		} catch (SQLException e) {
 			System.out.println("Erro na tentativa de insercao: " + e.getMessage());
@@ -35,7 +35,7 @@ public class HabilidadesDAO {
 		}
 	}
 
-	public void delete(Habilidades Habilidades) {
+	public void delete(Entregador Habilidades) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
