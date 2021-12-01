@@ -3,24 +3,24 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import bo.Habilidades;
-import model.HabilidadesDAO;
+import bo.Entregador;
+import model.EntregadorDAO;
 
-public class HabilidadesController {
-    public void create(Habilidades habilidade) {
+public class EntregadorController {
+    public void create(Entregador habilidade) {
         try {
-            HabilidadesDAO model = new HabilidadesDAO();
+            EntregadorDAO model = new EntregadorDAO();
             model.create(habilidade);
         } catch(Exception e) {
 			System.out.println("<Controller> Erro ao tentar inserir Habilidade: " + e);
 		}
 	}
 
-	public List<Habilidades> read() {
-		List<Habilidades> listaDeMissao = new ArrayList<Habilidades>();
+	public List<Entregador> read() {
+		List<Entregador> listaDeMissao = new ArrayList<Entregador>();
 		
 		try {
-			HabilidadesDAO model = new HabilidadesDAO();
+			EntregadorDAO model = new EntregadorDAO();
             listaDeMissao = model.read();
             		
 		} catch(Exception e) {
@@ -30,9 +30,9 @@ public class HabilidadesController {
 		return listaDeMissao;
 	}
 
-	public void delete(Habilidades missao) {
+	public void delete(Entregador missao) {
         try {
-			HabilidadesDAO model = new HabilidadesDAO();
+			EntregadorDAO model = new EntregadorDAO();
             model.delete(missao);
             		
 		} catch(Exception e) {
@@ -40,9 +40,9 @@ public class HabilidadesController {
 		}
 	}
 	
-	public void update(Habilidades missao) {
+	public void update(Entregador missao) {
 		try {
-			HabilidadesDAO model = new HabilidadesDAO();
+			EntregadorDAO model = new EntregadorDAO();
             model.update(missao);
             		
 		} catch(Exception e) {
