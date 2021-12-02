@@ -34,51 +34,7 @@ public class EntregadorDAO {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
 	}
-
-	public void delete(Entregador Entregador) {
-		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement stmt = null;
-
-		String sql = "DELETE FROM  bancoprog.ENTREGADOR WHERE CPF = ?";
-
-		try {
-			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(3, Entregador.getCpf()); // primeiro parametro da query
-
-			stmt.executeUpdate();
-			System.out.println("[EntregadorDAO] Entregador foi embora");
-
-		} catch (SQLException e) {
-			System.out.println("Erro na tentativa entregador ir: " + e.getMessage());
-		} finally {
-			ConnectionFactory.closeConnection(con, stmt);
-		}
-	}
-
-	public void update(Entregador Entregador) {
-		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement stmt = null;
-
-		String sql = "UPDATE ENTREGADOR SET NOME = ?, TELEFONE = ?, HABILITACAO = ?, PLACA = ? WHERE CPF = ? ";
-
-		try {
-			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(1, Entregador.getCpf());
-			stmt.setString(2, Entregador.getNome());
-			stmt.setString(3, Entregador.getTelefone());
-			stmt.setString(4, Entregador.getPlaca());
-			stmt.setString(5, Entregador.getHabilitacao());
-			stmt.executeUpdate();
-
-			System.out.println("[EntregadorDAO] As informações do Entregador foram alteradas com sucesso!");
-
-		} catch (SQLException e) {
-			System.out.println("Erro ao tentar atualizar: " + e.getMessage());
-		} finally {
-			ConnectionFactory.closeConnection(con, stmt);
-		}
-	}
-
+	
 	public List<Entregador> read() {
 		List<Entregador> listaEntregador = new ArrayList<Entregador>();
 
@@ -112,4 +68,49 @@ public class EntregadorDAO {
 
 		return listaEntregador;
 	}
+	
+	public void delete(Entregador entregador) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+
+		String sql = "DELETE FROM  bancoprog.ENTREGADOR WHERE CPF = ?";
+
+		try {
+			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
+			stmt.setInt(1, entregador.getCpf()); // primeiro parametro da query
+
+			stmt.executeUpdate();
+			System.out.println("[EntregadorDAO] Entregador foi embora");
+
+		} catch (SQLException e) {
+			System.out.println("Erro na tentativa entregador ir: " + e.getMessage());
+		} finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+	}
+
+	public void update(Entregador entregador) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+
+		String sql = "UPDATE ENTREGADOR SET NOME = ?, TELEFONE = ?, HABILITACAO = ?, PLACA = ? WHERE CPF = ? ";
+
+		try {
+			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
+			stmt.setInt(1, entregador.getCpf());
+			stmt.setString(2, entregador.getNome());
+			stmt.setString(3, entregador.getTelefone());
+			stmt.setString(4, entregador.getPlaca());
+			stmt.setString(5, entregador.getHabilitacao());
+			stmt.executeUpdate();
+
+			System.out.println("[EntregadorDAO] As informações do Entregador foram alteradas com sucesso!");
+
+		} catch (SQLException e) {
+			System.out.println("Erro ao tentar atualizar: " + e.getMessage());
+		} finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+	}
+
 }
