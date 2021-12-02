@@ -361,7 +361,8 @@ public class SecondView extends JFrame implements ActionListener {
 				restaurante.setCodigo(Integer.parseInt(textcodmission.getText()));
 				restaurante.setEndereco(texttipo.getText());
 				restaurante.setTelefone(textcliente.getText());
-				restaurante.setNome(textcomponente.getText());
+				restaurante.setNome(textrank3.getText());//textrank3
+				restaurante.setCulinaria(textcomponente.getText());
 
 				RestauranteController restauranteInsert = new RestauranteController();
 				restauranteInsert.create(restaurante);
