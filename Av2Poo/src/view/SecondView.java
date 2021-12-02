@@ -72,7 +72,7 @@ public class SecondView extends JFrame implements ActionListener {
 	 */
 	public SecondView() {
 		Connection con = ConnectionFactory.getConnection();
-		getContentPane().setBackground(new Color(0, 100, 0));
+		getContentPane().setBackground(new Color(255, 0, 0));
 		getContentPane().setLayout(null);
 		setSize(1050, 620);
 		setLocation(500, 200);
