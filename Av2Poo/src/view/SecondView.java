@@ -125,7 +125,7 @@ public class SecondView extends JFrame {
 		});
 		btsend.setBounds(298, 267, 66, 23);
 		panel.add(btsend);
-		// FAZER ALTERAÇÃO DOS NOMES DE CADA CAMPO
+		
 		JLabel lblNewLabel = new JLabel("Nome:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(10, 50, 106, 14);
