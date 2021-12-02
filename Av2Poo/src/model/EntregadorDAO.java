@@ -73,7 +73,7 @@ public class EntregadorDAO {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "DELETE FROM  bancoprog.ENTREGADOR WHERE CPF = ?";
+		String sql = "DELETE FROM bancoprog.ENTREGADOR WHERE CPF = ?";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
@@ -97,11 +97,12 @@ public class EntregadorDAO {
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(1, entregador.getCpf());
-			stmt.setString(2, entregador.getNome());
-			stmt.setString(3, entregador.getTelefone());
+			stmt.setString(1, entregador.getNome());
+			stmt.setString(2, entregador.getTelefone());
+			stmt.setString(3, entregador.getHabilitacao());
 			stmt.setString(4, entregador.getPlaca());
-			stmt.setString(5, entregador.getHabilitacao());
+			stmt.setInt(5, entregador.getCpf());
+			
 			stmt.executeUpdate();
 
 			System.out.println("[EntregadorDAO] As informações do Entregador foram alteradas com sucesso!");

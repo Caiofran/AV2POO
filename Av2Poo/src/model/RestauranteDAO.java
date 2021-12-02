@@ -59,15 +59,15 @@ public class RestauranteDAO {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "UPDATE RESTAURANTE SET CODIGO = ?, NOME = ?, ENDERECO = ?, TELEFONE = ?, CULINARIA = ? WHERE CODIGO = ?";
+		String sql = "UPDATE RESTAURANTE SET NOME = ?, ENDERECO = ?, TELEFONE = ?, CULINARIA = ? WHERE CODIGO = ?";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(1, restaurante.getCodigo()); // primeiro parametro da query
-			stmt.setString(2, restaurante.getNome());
-			stmt.setString(3, restaurante.getEndereco());
-			stmt.setString(4, restaurante.getTelefone());
-			stmt.setString(5, restaurante.getCulinaria());
+			stmt.setString(1, restaurante.getNome());// primeiro parametro da query
+			stmt.setString(2, restaurante.getEndereco());
+			stmt.setString(3, restaurante.getTelefone());
+			stmt.setString(4, restaurante.getCulinaria());
+			stmt.setInt(5, restaurante.getCodigo());
 
 			stmt.executeUpdate();
 			System.out.println("[RestauranteDAO] As informações do restaurante foram alteradas com sucesso!");
