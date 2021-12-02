@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SecondView",
+            "request": "launch",
+            "mainClass": "view.SecondView",
+            "projectName": "Av2Poo_688d65f7"
+        },
+        {
+            "type": "java",
             "name": "Launch FirstView",
             "request": "launch",
             "mainClass": "view.FirstView",

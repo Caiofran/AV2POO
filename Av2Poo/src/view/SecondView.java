@@ -140,8 +140,8 @@ public class SecondView extends JFrame implements ActionListener {
 		panel.add(textForma_De_Pagamento);
 		textForma_De_Pagamento.setColumns(10);
 
-		JButton btnsend = new JButton("Enviar");
-		btnsend.addActionListener(new ActionListener() {
+		JButton btsend = new JButton("Enviar");
+		btsend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Cliente cliente = new Cliente();
 				cliente.setNome(textname.getText());
@@ -154,8 +154,8 @@ public class SecondView extends JFrame implements ActionListener {
 				clienteInsert.create(cliente);
 			}
 		});
-		btnsend.setBounds(298, 267, 66, 23);
-		panel.add(btnsend);
+		btsend.setBounds(298, 267, 66, 23);
+		panel.add(btsend);
 
 		JLabel lblNewLabel = new JLabel("Nome:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -247,8 +247,8 @@ public class SecondView extends JFrame implements ActionListener {
 		panelskills.add(textconsumo);
 		textconsumo.setColumns(10);
 
-		JButton btnsend2 = new JButton("Enviar");
-		btnsend2.addActionListener(new ActionListener() {
+		JButton btsend2 = new JButton("Enviar");
+		btsend2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Entregador entregador = new Entregador();
 				entregador.setCpf(Integer.parseInt(textcod2.getText()));
@@ -261,8 +261,8 @@ public class SecondView extends JFrame implements ActionListener {
 				entregadorInsert.create(entregador);
 			}
 		});
-		btnsend2.setBounds(292, 264, 72, 23);
-		panelskills.add(btnsend2);
+		btsend2.setBounds(292, 264, 72, 23);
+		panelskills.add(btsend2);
 
 		JLabel lblNewLabel_5 = new JLabel("CPF:");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -354,8 +354,8 @@ public class SecondView extends JFrame implements ActionListener {
 		panelmission.add(textcomponente);
 		textcomponente.setColumns(10);
 
-		JButton btnsend3 = new JButton("Enviar");
-		btnsend3.addActionListener(new ActionListener() {
+		JButton btsend3 = new JButton("Enviar");
+		btsend3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Restaurante restaurante = new Restaurante();
 				restaurante.setCodigo(Integer.parseInt(textcodmission.getText()));
@@ -368,8 +368,8 @@ public class SecondView extends JFrame implements ActionListener {
 				restauranteInsert.create(restaurante);
 			}
 		});
-		btnsend3.setBounds(292, 267, 72, 23);
-		panelmission.add(btnsend3);
+		btsend3.setBounds(292, 267, 72, 23);
+		panelmission.add(btsend3);
 
 		JLabel lblNewLabel_10 = new JLabel("Codigo:");
 		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 18));

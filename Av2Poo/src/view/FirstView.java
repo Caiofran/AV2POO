@@ -55,9 +55,10 @@ public class FirstView {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 0, 0));
-		frame.setBounds( 490, 100, 100, 486);
+		frame.setBounds( 100, 100, 490, 486);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setSize(500, 500);
 
 		textusuario = new JTextField();
 		textusuario.setBounds(267, 216, 166, 28);
