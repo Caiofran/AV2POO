@@ -30,20 +30,20 @@ public class EntregadorController {
 		return listaDeEntregador;
 	}
 
-	public void delete(Entregador missao) {
+	public void delete(Entregador entregador) {
         try {
 			EntregadorDAO model = new EntregadorDAO();
-            model.delete(missao);
+            model.delete(entregador);
             		
 		} catch(Exception e) {
 			System.out.println("<Controller> Erro ao esconder Entregador: " + e);
 		}
 	}
 	
-	public void update(Entregador missao) {
+	public void update(Entregador entregador) {
 		try {
 			EntregadorDAO model = new EntregadorDAO();
-            model.update(missao);
+            model.update(entregador);
             		
 		} catch(Exception e) {
 			System.out.println("<Controller> Erro ao tentar atualizar Entregador: " + e);
