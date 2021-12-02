@@ -19,11 +19,19 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import bo.Habilidades;
+<<<<<<< HEAD:Av2Poo/src/view/SecondView.java
 import bo.Missao;
 import bo.Cliente;
 import controller.HabilidadesController;
 import controller.MissaoController;
 import controller.ClienteController;
+=======
+import bo.Restaurante;
+import bo.Ninja;
+import controller.HabilidadesController;
+import controller.RestauranteController;
+import controller.NinjaController;
+>>>>>>> 286ebde5b57be975ae4283f0921356c78aff2580:Av2Poo/src/view/SecondView copy.java
 import jdbc.ConnectionFactory;
 import net.proteanit.sql.DbUtils;
 
@@ -47,7 +55,7 @@ public class SecondView extends JFrame {
 	private JTextField textcliente;
 	private JTextField textrank3;
 	private JTextField textcomponente;
-	private JTextField texttempo_missao;
+	private JTextField texttempo_restaurante;
 	private JTable table;
 
 	/**
@@ -284,7 +292,7 @@ public class SecondView extends JFrame {
 		panelskills.add(btselectskill);
 
 		JPanel panelmission = new JPanel();
-		tabbedPane.addTab("Missão", null, panelmission, null);
+		tabbedPane.addTab("Restaurante", null, panelmission, null);
 		panelmission.setLayout(null);
 
 		textcodmission = new JTextField();
@@ -315,14 +323,14 @@ public class SecondView extends JFrame {
 		JButton btsend3 = new JButton("Enviar");
 		btsend3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Missao missao = new Missao();
-				missao.setCodigo(Integer.parseInt(textcodmission.getText()));
-				missao.setTipo(texttipo.getText());
-				missao.setCliente(textcliente.getText());
-				missao.setComponente(textcomponente.getText());
+				Restaurante restaurante = new Restaurante();
+				restaurante.setCodigo(Integer.parseInt(textcodmission.getText()));
+				restaurante.setEndereco(texttipo.getText());
+				restaurante.setTelefone(textcliente.getText());
+				restaurante.setNome(textcomponente.getText());
 
-				MissaoController missaoInsert = new MissaoController();
-				missaoInsert.create(missao);
+				RestauranteController restauranteInsert = new RestauranteController();
+				restauranteInsert.create(restaurante);
 			}
 		});
 		btsend3.setBounds(292, 267, 72, 23);
@@ -333,22 +341,22 @@ public class SecondView extends JFrame {
 		lblNewLabel_10.setBounds(10, 22, 159, 22);
 		panelmission.add(lblNewLabel_10);
 
-		JLabel lblNewLabel_11 = new JLabel("Tipo:");
+		JLabel lblNewLabel_11 = new JLabel("Endereço:");
 		lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_11.setBounds(10, 63, 46, 22);
 		panelmission.add(lblNewLabel_11);
 
-		JLabel lblNewLabel_12 = new JLabel("Cliente:");
+		JLabel lblNewLabel_12 = new JLabel("Telefone:");
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_12.setBounds(10, 104, 98, 22);
 		panelmission.add(lblNewLabel_12);
 
-		JLabel lblNewLabel_13 = new JLabel("Rank:");
+		JLabel lblNewLabel_13 = new JLabel("Culinaria:");
 		lblNewLabel_13.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_13.setBounds(10, 145, 89, 22);
 		panelmission.add(lblNewLabel_13);
 
-		JLabel lblNewLabel_14 = new JLabel("Componentes:");
+		JLabel lblNewLabel_14 = new JLabel("Nome:");
 		lblNewLabel_14.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_14.setBounds(10, 186, 159, 22);
 		panelmission.add(lblNewLabel_14);
@@ -356,14 +364,14 @@ public class SecondView extends JFrame {
 		JButton btnupmission = new JButton("Update");
 		btnupmission.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Missao missao = new Missao();
-				missao.setCodigo(Integer.parseInt(textcodmission.getText()));
-				missao.setTipo(texttipo.getText());
-				missao.setCliente(textcliente.getText());
-				missao.setComponente(textcomponente.getText());
+				Restaurante restaurante = new Restaurante();
+				restaurante.setCodigo(Integer.parseInt(textcodmission.getText()));
+				restaurante.setEndereco(texttipo.getText());
+				restaurante.setTelefone(textcliente.getText());
+				restaurante.setNome(textcomponente.getText());
 
-				MissaoController missaoUpdate = new MissaoController();
-				missaoUpdate.update(missao);
+				RestauranteController restauranteUpdate = new RestauranteController();
+				restauranteUpdate.update(restaurante);
 			}
 		});
 		btnupmission.setBounds(205, 267, 78, 23);
@@ -372,12 +380,12 @@ public class SecondView extends JFrame {
 		JButton btndeletemission = new JButton("Delete");
 		btndeletemission.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Missao missao = new Missao();
-				missao.setCodigo(Integer.parseInt(textcodmission.getText()));
-				missao.setComponente(textcomponente.getText());
+				Restaurante restaurante = new Restaurante();
+				restaurante.setCodigo(Integer.parseInt(textcodmission.getText()));
+				restaurante.setNome(textcomponente.getText());
 
-				MissaoController missaoDelete = new MissaoController();
-				missaoDelete.delete(missao);
+				RestauranteController restauranteDelete = new RestauranteController();
+				restauranteDelete.delete(restaurante);
 			}
 		});
 		btndeletemission.setBounds(205, 301, 78, 23);
@@ -421,7 +429,7 @@ public class SecondView extends JFrame {
 		btselectmission.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query = "SELECT * FROM db_system.MISSAO";
+					String query = "SELECT * FROM db_system.RESTAURANTE";
 					PreparedStatement pst = con.prepareStatement(query);
 					ResultSet result = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(result));
