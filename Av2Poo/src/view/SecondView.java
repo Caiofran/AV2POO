@@ -19,19 +19,11 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import bo.Habilidades;
-<<<<<<< HEAD:Av2Poo/src/view/SecondView.java
-import bo.Missao;
+import bo.Restaurante;
 import bo.Cliente;
 import controller.HabilidadesController;
-import controller.MissaoController;
-import controller.ClienteController;
-=======
-import bo.Restaurante;
-import bo.Ninja;
-import controller.HabilidadesController;
 import controller.RestauranteController;
-import controller.NinjaController;
->>>>>>> 286ebde5b57be975ae4283f0921356c78aff2580:Av2Poo/src/view/SecondView copy.java
+import controller.ClienteController;
 import jdbc.ConnectionFactory;
 import net.proteanit.sql.DbUtils;
 
