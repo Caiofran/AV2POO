@@ -39,7 +39,7 @@ public class ClienteDAO {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "DELETE FROM db_system.CLIENTE WHERE NOME = ?";
+		String sql = "DELETE FROM bancoprog.CLIENTE WHERE NOME = ?";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
@@ -87,7 +87,7 @@ public class ClienteDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT NOME, ENDERECO, TELEFONE, EMAIL, FORMA_DE_PAGAMENTO FROM db_system.CLIENTE";
+		String sql = "SELECT NOME, ENDERECO, TELEFONE, EMAIL, FORMA_DE_PAGAMENTO FROM bancoprog.CLIENTE";
 
 		try {
 			stmt = con.prepareStatement(sql);

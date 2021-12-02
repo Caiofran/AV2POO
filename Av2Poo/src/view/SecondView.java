@@ -32,11 +32,12 @@ public class SecondView extends JFrame {
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textmat;
+	// private JTextField textmat;
 	private JTextField textname;
-	private JTextField textyear;
-	private JTextField textblood;
-	private JTextField textrank;
+	private JTextField textend;
+	private JTextField textEmail;
+	private JTextField textTelefone;
+	private JTextField textForma_De_Pagamento;
 	private JTextField textcod2;
 	private JTextField textname2;
 	private JTextField textpower;
@@ -84,40 +85,40 @@ public class SecondView extends JFrame {
 		tabbedPane.addTab("Cliente", null, panel, null);
 		panel.setLayout(null);
 
-		textmat = new JTextField();
-		textmat.setBounds(184, 45, 180, 30);
-		panel.add(textmat);
-		textmat.setColumns(10);
-
 		textname = new JTextField();
-		textname.setBounds(184, 86, 180, 30);
+		textname.setBounds(184, 45, 180, 30);
 		panel.add(textname);
 		textname.setColumns(10);
 
-		textyear = new JTextField();
-		textyear.setBounds(184, 129, 180, 30);
-		panel.add(textyear);
-		textyear.setColumns(10);
+		textend = new JTextField();
+		textend.setBounds(184, 45, 180, 30);
+		panel.add(textend);
+		textend.setColumns(10);
 
-		textrank = new JTextField();
-		textrank.setBounds(184, 170, 180, 30);
-		panel.add(textrank);
-		textrank.setColumns(10);
+		textTelefone = new JTextField();
+		textTelefone.setBounds(184, 129, 180, 30);
+		panel.add(textTelefone);
+		textTelefone.setColumns(10);
 
-		textblood = new JTextField();
-		textblood.setBounds(184, 211, 180, 30);
-		panel.add(textblood);
-		textblood.setColumns(10);
+		textEmail = new JTextField();
+		textEmail.setBounds(184, 170, 180, 30);
+		panel.add(textEmail);
+		textEmail.setColumns(10);
+
+		textForma_De_Pagamento = new JTextField();
+		textForma_De_Pagamento.setBounds(184, 211, 180, 30);
+		panel.add(textForma_De_Pagamento);
+		textForma_De_Pagamento.setColumns(10);
 
 		JButton btsend = new JButton("Enviar");
 		btsend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Cliente cliente = new Cliente();
 				cliente.setNome(textname.getText());
-				cliente.setEndereco(textyear.getText());
-				cliente.setTelefone(Integer.parseInt(textrank.getText()));
-				cliente.setEmail(textblood.getText());
-				cliente.setForma_de_pagamento(textblood.getText());
+				cliente.setEndereco(textend.getText());
+				cliente.setTelefone(Integer.parseInt(textTelefone.getText()));
+				cliente.setEmail(textEmail.getText());
+				cliente.setForma_de_pagamento(textForma_De_Pagamento.getText());
 
 				ClienteController clienteInsert = new ClienteController();
 				clienteInsert.create(cliente);
@@ -171,10 +172,10 @@ public class SecondView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Cliente cliente = new Cliente();
 				cliente.setNome(textname.getText());
-				cliente.setEndereco(textyear.getText());
-				cliente.setTelefone(Integer.parseInt(textrank.getText()));
-				cliente.setEmail(textblood.getText());
-				cliente.setForma_de_pagamento(textblood.getText());
+				cliente.setEndereco(textend.getText());
+				cliente.setTelefone(Integer.parseInt(textTelefone.getText()));
+				cliente.setEmail(textEmail.getText());
+				cliente.setForma_de_pagamento(textForma_De_Pagamento.getText());
 
 				ClienteController clienteUpdate = new ClienteController();
 				clienteUpdate.update(cliente);
