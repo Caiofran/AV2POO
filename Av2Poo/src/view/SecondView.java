@@ -81,7 +81,7 @@ public class SecondView extends JFrame {
 		getContentPane().add(tabbedPane);
 
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("Shinobi", null, panel, null);
+		tabbedPane.addTab("Cliente", null, panel, null);
 		panel.setLayout(null);
 
 		textmat = new JTextField();
