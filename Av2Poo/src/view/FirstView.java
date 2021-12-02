@@ -54,7 +54,7 @@ public class FirstView {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(32, 178, 170));
+		frame.getContentPane().setBackground(new Color(255, 0, 0));
 		frame.setBounds(100, 100, 490, 486);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -65,7 +65,7 @@ public class FirstView {
 		textusuario.setColumns(10);
 
 		JButton btlogin = new JButton("Log In");
-		btlogin.setForeground(new Color(0, 0, 0));
+		btlogin.setForeground(new Color(255, 255, 255));
 		btlogin.setBackground(SystemColor.desktop);
 		btlogin.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btlogin.addActionListener(new ActionListener() {
@@ -73,14 +73,14 @@ public class FirstView {
 				// adicionar acao do botao
 				if (checklogin(textusuario.getText(), new String(textpass.getPassword()))) {
 
-					JOptionPane.showMessageDialog(null, "Welcome Master!");
+					JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
 					// cria objeto
 					SecondView second = new SecondView();
 					second.setVisible(true);
 					frame.dispose();
 				} else {
 
-					JOptionPane.showMessageDialog(null, "Não autorizado!");
+					JOptionPane.showMessageDialog(null, "Login não autorizado!");
 				}
 
 			}

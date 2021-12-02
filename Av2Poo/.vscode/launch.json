@@ -9,6 +9,13 @@
             "name": "Launch FirstView",
             "request": "launch",
             "mainClass": "view.FirstView",
+            "projectName": "Av2Poo_5b130184"
+        },
+        {
+            "type": "java",
+            "name": "Launch FirstView",
+            "request": "launch",
+            "mainClass": "view.FirstView",
             "projectName": "Av2Poo_688d65f7"
         },
         {
