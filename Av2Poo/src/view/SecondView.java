@@ -18,10 +18,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import bo.Habilidades;
+import bo.Entregador;
 import bo.Restaurante;
 import bo.Cliente;
-import controller.HabilidadesController;
+import controller.EntregadorController;
 import controller.RestauranteController;
 import controller.ClienteController;
 import jdbc.ConnectionFactory;
@@ -218,21 +218,21 @@ public class SecondView extends JFrame {
 		JButton btsend2 = new JButton("Enviar");
 		btsend2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Habilidades habilidade = new Habilidades();
-				habilidade.setCodigo(Integer.parseInt(textcod2.getText()));
-				habilidade.setNome(textname2.getText());
-				habilidade.setPoder(Integer.parseInt(textpower.getText()));
-				habilidade.setRankingHabilidade(textrank2.getText());
-				habilidade.setConsumoChackra(Integer.parseInt(textconsumo.getText()));
+				Entregador entregador = new Entregador();
+				entregador.setCpf(Integer.parseInt(textcod2.getText()));
+				entregador.setNome(textname2.getText());
+				entregador.setTelefone(textpower.getText());
+				entregador.setPlaca(textrank2.getText());
+				entregador.setHabilitacao(textconsumo.getText());
 
-				HabilidadesController habilidadeInsert = new HabilidadesController();
-				habilidadeInsert.create(habilidade);
+				EntregadorController entregadorInsert = new EntregadorController();
+				entregadorInsert.create(entregador);
 			}
 		});
 		btsend2.setBounds(292, 264, 72, 23);
 		panelskills.add(btsend2);
 
-		JLabel lblNewLabel_5 = new JLabel("Codigo:");
+		JLabel lblNewLabel_5 = new JLabel("CPF:");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_5.setBounds(10, 46, 89, 22);
 		panelskills.add(lblNewLabel_5);
@@ -242,17 +242,17 @@ public class SecondView extends JFrame {
 		lblNewLabel_6.setBounds(10, 94, 89, 14);
 		panelskills.add(lblNewLabel_6);
 
-		JLabel lblNewLabel_7 = new JLabel("Poder:");
+		JLabel lblNewLabel_7 = new JLabel("Telefone:");
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_7.setBounds(10, 135, 72, 14);
 		panelskills.add(lblNewLabel_7);
 
-		JLabel lblNewLabel_8 = new JLabel("Rank:");
+		JLabel lblNewLabel_8 = new JLabel("Placa:");
 		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_8.setBounds(10, 176, 89, 14);
 		panelskills.add(lblNewLabel_8);
 
-		JLabel lblNewLabel_9 = new JLabel("Consumo do Chakra:");
+		JLabel lblNewLabel_9 = new JLabel("Habilitação:");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_9.setBounds(10, 222, 197, 14);
 		panelskills.add(lblNewLabel_9);
@@ -260,15 +260,16 @@ public class SecondView extends JFrame {
 		JButton btnupskills = new JButton("Update");
 		btnupskills.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Habilidades habilidade = new Habilidades();
-				habilidade.setCodigo(Integer.parseInt(textcod2.getText()));
-				habilidade.setNome(textname2.getText());
-				habilidade.setPoder(Integer.parseInt(textpower.getText()));
-				habilidade.setRankingHabilidade(textrank2.getText());
-				habilidade.setConsumoChackra(Integer.parseInt(textconsumo.getText()));
+				Entregador entregador = new Entregador();
+				entregador.setCpf(Integer.parseInt(textcod2.getText()));
+				entregador.setNome(textname2.getText());
+				entregador.setTelefone(textpower.getText());
+				entregador.setPlaca(textrank2.getText());
+				entregador.setHabilitacao(textconsumo.getText());
 
-				HabilidadesController habilidadeUpdate = new HabilidadesController();
-				habilidadeUpdate.update(habilidade);
+
+				EntregadorController entregadorUpdate = new EntregadorController();
+				entregadorUpdate.update(entregador);
 			}
 		});
 		btnupskills.setBounds(203, 264, 79, 23);
