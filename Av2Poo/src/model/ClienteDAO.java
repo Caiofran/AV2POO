@@ -46,10 +46,10 @@ public class ClienteDAO {
 			stmt.setString(1, cliente.getNome()); // primeiro parametro da query
 
 			stmt.executeUpdate();
-			System.out.println("[ClienteDAO] Ninja se tornou Renegado");
+			System.out.println("[ClienteDAO] Cliente se tornou Renegado");
 
 		} catch (SQLException e) {
-			System.out.println("Erro na tentativa renegar Ninja: " + e.getMessage());
+			System.out.println("Erro na tentativa renegar Cliente: " + e.getMessage());
 		} finally {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
@@ -59,7 +59,7 @@ public class ClienteDAO {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "UPDATE ALUNO SET MATRICULA = ?, NOME = ?, IDADE = ?, RANKING = ?, TIPO_SANGUINEO = ? WHERE MATRICULA = ? ";
+		String sql = "UPDATE ALUNO SET  NOME = ?, ENDERECO = ?, TELEFONE = ?, EMAIL = ?, FORMA_DE_PAGAMENTO = ? WHERE NOME = ? ";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
@@ -80,7 +80,7 @@ public class ClienteDAO {
 	}
 
 	public List<Cliente> read() {
-		List<Cliente> listaNinja = new ArrayList<Cliente>();
+		List<Cliente> listaClientes = new ArrayList<Cliente>();
 
 		// ler banco mysql e preencher lista de alunos
 		Connection con = ConnectionFactory.getConnection();
@@ -101,7 +101,7 @@ public class ClienteDAO {
 				cliente.setEmail(rs.getString("EMAIL"));
 				cliente.setForma_de_pagamento(rs.getString("FORMA_DE_PAGAMENTO"));
 
-				listaNinja.add(cliente);
+				listaClientes.add(cliente);
 			}
 
 		} catch (SQLException e) {
@@ -110,6 +110,6 @@ public class ClienteDAO {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
 
-		return listaNinja;
+		return listaClientes;
 	}
 }
