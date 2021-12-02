@@ -3,10 +3,10 @@ package bo;
 public class Entregador {
 
 	private String nome; //ok
-    private int telefone; //ok
+    private String telefone; //ok
     private int cpf; //ok
-    private String placa;
-    private int habilitacao;
+    private String placa; //ok
+    private String habilitacao;//ok
 	
 	public String getNome() {
 		return nome;
@@ -15,10 +15,10 @@ public class Entregador {
 		this.nome = nome;
     }
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
     }    
     
@@ -39,7 +39,7 @@ public class Entregador {
     public String getHabilitacao() {
 		return habilitacao;
 	}
-	public void sethabilitacao(int habilitacao) {
+	public void setHabilitacao(String habilitacao) {
 		this.habilitacao = habilitacao;
     }
     

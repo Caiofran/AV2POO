@@ -96,10 +96,10 @@ public class EntregadorDAO {
 			while (rs.next()) {
 				Entregador entregador = new Entregador();
 				entregador.setCpf(rs.getInt("CPF"));
-				entregador.setNome(rs.getString("COMPONENTE"));
-				entregador.setTelefone(rs.getString("CLIENTE"));
-				entregador.setPlaca(rs.getString("RANKING"));
-				entregador.setHabilitacao(rs.getString("DATA_INICIO"));
+				entregador.setNome(rs.getString("NOME"));
+				entregador.setTelefone(rs.getString("TELEFONE"));
+				entregador.setPlaca(rs.getString("PLACA"));
+				entregador.setHabilitacao(rs.getString("HABILITACAO"));
 
 				listaEntregador.add(entregador);
 			}
