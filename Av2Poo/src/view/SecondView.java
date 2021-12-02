@@ -307,9 +307,20 @@ public class SecondView extends JFrame implements ActionListener {
 		panelskills.add(btnupskills);
 
 		JButton btndeleteskill = new JButton("Delete");
-
 		btndeleteskill.setBounds(205, 301, 77, 23);
 		panelskills.add(btndeleteskill);
+
+		// JButton btndeleteskill = new JButton("Delete");
+		btndeleteskill.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Entregador entregador = new Entregador();
+				entregador.setCpf(Integer.parseInt(textcod2.getText()));;
+				// entregador.setNome(textcomponente.getText());
+
+				EntregadorController entregadorDelete = new EntregadorController();
+				entregadorDelete.delete(entregador);
+			}
+		});
 
 		JButton btselectskill = new JButton("Select");
 		btselectskill.setBounds(292, 301, 72, 23);

@@ -73,7 +73,7 @@ public class EntregadorDAO {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "DELETE FROM  bancoprog.ENTREGADOR WHERE CPF = ?";
+		String sql = "DELETE FROM bancoprog.ENTREGADOR WHERE CPF = ?";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
