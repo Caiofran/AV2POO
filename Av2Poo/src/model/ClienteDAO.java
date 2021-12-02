@@ -46,7 +46,7 @@ public class ClienteDAO {
 			stmt.setString(1, cliente.getNome()); // primeiro parametro da query
 
 			stmt.executeUpdate();
-			System.out.println("[ClienteDAO] Cliente se tornou Renegado");
+			System.out.println("[ClienteDAO] Cliente deletado");
 
 		} catch (SQLException e) {
 			System.out.println("Erro na tentativa renegar Cliente: " + e.getMessage());
@@ -82,12 +82,12 @@ public class ClienteDAO {
 	public List<Cliente> read() {
 		List<Cliente> listaClientes = new ArrayList<Cliente>();
 
-		// ler banco mysql e preencher lista de alunos
+		// ler banco mysql e preencher lista
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-
-		String sql = "SELECT NOME, ENDERECO, TELEFONE, EMAIL, FORMA_DE_PAGAMENTO FROM bancoprog.CLIENTE";
+		//NOME, ENDERECO, TELEFONE, EMAIL, FORMA_DE_PAGAMENTO
+		String sql = "SELECT * FROM bancoprog.CLIENTE";
 
 		try {
 			stmt = con.prepareStatement(sql);
