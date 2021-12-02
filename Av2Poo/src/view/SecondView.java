@@ -186,7 +186,7 @@ public class SecondView extends JFrame {
 		panel.add(btnselect);
 
 		JPanel panelskills = new JPanel();
-		tabbedPane.addTab("Habilidades", null, panelskills, null);
+		tabbedPane.addTab("Entregador", null, panelskills, null);
 		panelskills.setLayout(null);
 
 		textcod2 = new JTextField();
@@ -408,7 +408,7 @@ public class SecondView extends JFrame {
 		btselectskill.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query = "SELECT * FROM db_system.HABILIDADES";
+					String query = "SELECT * FROM db_system.ENTREGADOR";
 					PreparedStatement pst = con.prepareStatement(query);
 					ResultSet result = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(result));
