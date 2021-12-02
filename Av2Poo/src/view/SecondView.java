@@ -125,11 +125,11 @@ public class SecondView extends JFrame {
 		});
 		btsend.setBounds(298, 267, 66, 23);
 		panel.add(btsend);
-
-		// JLabel lblNewLabel = new JLabel("Matricula:");
-		// lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		// lblNewLabel.setBounds(10, 50, 106, 14);
-		// panel.add(lblNewLabel);
+		// FAZER ALTERAÇÃO DOS NOMES DE CADA CAMPO
+		JLabel lblNewLabel = new JLabel("Matricula:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(10, 50, 106, 14);
+		panel.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Nome:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
