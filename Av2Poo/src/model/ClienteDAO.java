@@ -63,11 +63,11 @@ public class ClienteDAO {
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setString(1, cliente.getNome()); // primeiro parametro da query
-			stmt.setString(2, cliente.getEndereco());
-			stmt.setInt(3, cliente.getTelefone());
-			stmt.setString(4, cliente.getEmail());
-			stmt.setString(5, cliente.getForma_de_pagamento());
+			stmt.setString(1, cliente.getEndereco());// primeiro parametro da query
+			stmt.setInt(2, cliente.getTelefone());
+			stmt.setString(3, cliente.getEmail());
+			stmt.setString(4, cliente.getForma_de_pagamento());
+			stmt.setString(5, cliente.getNome());
 
 			stmt.executeUpdate();
 			System.out.println("[ClienteDAO] As informações do cliente foram alteradas com sucesso!");
