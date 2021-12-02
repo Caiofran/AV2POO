@@ -36,7 +36,7 @@ public class EntregadorController {
             model.delete(entregador);
             		
 		} catch(Exception e) {
-			System.out.println("<Controller> Erro ao esconder Entregador: " + e);
+			System.out.println("<Controller> Erro ao deletar Entregador: " + e);
 		}
 	}
 	
@@ -46,7 +46,7 @@ public class EntregadorController {
             model.update(entregador);
             		
 		} catch(Exception e) {
-			System.out.println("<Controller> Erro ao tentar atualizar Entregador: " + e);
+			System.out.println("<Controller> Erro ao atualizar Entregador: " + e);
 		}
 	}
 }
