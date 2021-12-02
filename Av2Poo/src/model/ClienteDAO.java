@@ -59,7 +59,7 @@ public class ClienteDAO {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "UPDATE CLIENTE SET  NOME = ?, ENDERECO = ?, TELEFONE = ?, EMAIL = ?, FORMA_DE_PAGAMENTO = ? WHERE NOME = ? ";
+		String sql = "UPDATE CLIENTE SET ENDERECO = ?, TELEFONE = ?, EMAIL = ?, FORMA_DE_PAGAMENTO = ? WHERE NOME = ? ";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql

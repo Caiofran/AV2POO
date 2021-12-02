@@ -27,7 +27,7 @@ import controller.ClienteController;
 import jdbc.ConnectionFactory;
 import net.proteanit.sql.DbUtils;
 
-public class SecondView extends JFrame {
+public class SecondView extends JFrame implements ActionListener {
 	/**
 	 *
 	 */
@@ -156,7 +156,7 @@ public class SecondView extends JFrame {
 		});
 		btsend.setBounds(298, 267, 66, 23);
 		panel.add(btsend);
-		
+
 		JLabel lblNewLabel = new JLabel("Nome:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(10, 50, 106, 14);
@@ -213,6 +213,7 @@ public class SecondView extends JFrame {
 		});
 
 		JButton btnselect = new JButton("Select");
+		btnselect.addActionListener(this);
 		btnselect.setBounds(288, 301, 78, 23);
 		panel.add(btnselect);
 
@@ -297,7 +298,6 @@ public class SecondView extends JFrame {
 				entregador.setTelefone(textpower.getText());
 				entregador.setPlaca(textrank2.getText());
 				entregador.setHabilitacao(textconsumo.getText());
-
 
 				EntregadorController entregadorUpdate = new EntregadorController();
 				entregadorUpdate.update(entregador);
@@ -426,7 +426,7 @@ public class SecondView extends JFrame {
 		btnselect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query = "SELECT * FROM db_system.CLIENTE";
+					String query = "SELECT * FROM bancoprog.CLIENTE";
 					PreparedStatement pst = con.prepareStatement(query);
 					ResultSet result = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(result));
@@ -439,7 +439,7 @@ public class SecondView extends JFrame {
 		btselectskill.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query = "SELECT * FROM db_system.ENTREGADOR";
+					String query = "SELECT * FROM bancoprog.ENTREGADOR";
 					PreparedStatement pst = con.prepareStatement(query);
 					ResultSet result = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(result));
@@ -453,7 +453,7 @@ public class SecondView extends JFrame {
 		btselectmission.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query = "SELECT * FROM db_system.RESTAURANTE";
+					String query = "SELECT * FROM bancoprog.RESTAURANTE";
 					PreparedStatement pst = con.prepareStatement(query);
 					ResultSet result = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(result));
@@ -466,5 +466,11 @@ public class SecondView extends JFrame {
 
 		table = new JTable();
 		scrollPane.setViewportView(table);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
 	}
 }
