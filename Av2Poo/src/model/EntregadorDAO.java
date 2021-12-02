@@ -15,15 +15,15 @@ public class EntregadorDAO {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "INSERT INTO ENTREGADOR( NOME, TELEFONE, CPF, PLACA, PLACA) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO ENTREGADOR( CPF, NOME, TELEFONE,  PLACA, HABILITACAO) VALUES (?, ?, ?, ?, ?)";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setString(1, entregador.getNome()); // primeiro parametro da query
-			stmt.setInt(2, entregador.getTelefone());
-			stmt.setInt(3, entregador.getCpf());
+			stmt.setInt(1, entregador.getCpf()); // primeiro parametro da query
+			stmt.setString(2, entregador.getNome());
+			stmt.setString(3, entregador.getTelefone());
 			stmt.setString(4, entregador.getPlaca());
-			stmt.setInt(5, entregador.getHabilitacao());
+			stmt.setString(5, entregador.getHabilitacao());
 
 			stmt.executeUpdate();
 			System.out.println("[EntregadorDAO] Entregador cadastrada com sucesso");
@@ -35,42 +35,42 @@ public class EntregadorDAO {
 		}
 	}
 
-	public void delete(Entregador Habilidades) {
+	public void delete(Entregador Entregador) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "DELETE FROM db_system.HABILIDADES WHERE CODIGO = ?";
+		String sql = "DELETE FROM db_system.ENTREGADOR WHERE CPF = ?";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(1, Habilidades.getCodigo()); // primeiro parametro da query
+			stmt.setInt(3, Entregador.getCpf()); // primeiro parametro da query
 
 			stmt.executeUpdate();
-			System.out.println("[HabilidadesDAO] Ninja se tornou Renegado");
+			System.out.println("[EntregadorDAO] Entregador foi embora");
 
 		} catch (SQLException e) {
-			System.out.println("Erro na tentativa renegar Ninja: " + e.getMessage());
+			System.out.println("Erro na tentativa entregador ir: " + e.getMessage());
 		} finally {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
 	}
 
-	public void update(Habilidades Habilidades) {
+	public void update(Entregador Entregador) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "UPDATE HABILIDADES SET NOME = ?, PODER = ?, RANKING_HABILIDADE = ?, CONSUMO_CHACKRA = ? WHERE CODIGO = ? ";
+		String sql = "UPDATE ENTREGADOR SET NOME = ?, TELEFONE = ?, HABILITACAO = ?, PLACA = ? WHERE CPF = ? ";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setString(1, Habilidades.getNome());
-			stmt.setInt(2, Habilidades.getPoder());
-			stmt.setString(3, Habilidades.getRankingHabilidade());
-			stmt.setInt(4, Habilidades.getConsumoChackra());
-			stmt.setInt(5, Habilidades.getCodigo());
-
+			stmt.setInt(1, Entregador.getCpf()); 
+			stmt.setString(2, Entregador.getNome());
+			stmt.setString(3, Entregador.getTelefone());
+			stmt.setString(4, Entregador.getPlaca());
+			stmt.setString(5, Entregador.getHabilitacao());
 			stmt.executeUpdate();
-			System.out.println("[HabilidadesDAO] As informações da Habilidades foram alteradas com sucesso!");
+			
+			System.out.println("[EntregadorDAO] As informações do Entregador foram alteradas com sucesso!");
 
 		} catch (SQLException e) {
 			System.out.println("Erro ao tentar atualizar: " + e.getMessage());
@@ -79,29 +79,29 @@ public class EntregadorDAO {
 		}
 	}
 
-	public List<Habilidades> read() {
-		List<Habilidades> listaHabilidades = new ArrayList<Habilidades>();
+	public List<Entregador> read() {
+		List<Entregador> listaEntregador = new ArrayList<Entregador>();
 
 		// ler banco mysql e preencher lista de alunos
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT * FROM db_system.HABILIDADES";
+		String sql = "SELECT * FROM db_system.ENTREGADOR";
 
 		try {
 			stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				Habilidades habilidades = new Habilidades();
-				habilidades.setCodigo(rs.getInt("CODIGO"));
-				habilidades.setNome(rs.getString("COMPONENTE"));
-				habilidades.setPoder(rs.getInt("CLIENTE"));
-				habilidades.setRankingHabilidade(rs.getString("RANKING"));
-				habilidades.setConsumoChackra(rs.getInt("DATA_INICIO"));
+				Entregador entregador = new Entregador();
+				entregador.setCpf(rs.getInt("CPF"));
+				entregador.setNome(rs.getString("COMPONENTE"));
+				entregador.setTelefone(rs.getString("CLIENTE"));
+				entregador.setPlaca(rs.getString("RANKING"));
+				entregador.setHabilitacao(rs.getString("DATA_INICIO"));
 
-				listaHabilidades.add(habilidades);
+				listaEntregador.add(entregador);
 			}
 
 		} catch (SQLException e) {
@@ -110,6 +110,6 @@ public class EntregadorDAO {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
 
-		return listaHabilidades;
+		return listaEntregador;
 	}
 }

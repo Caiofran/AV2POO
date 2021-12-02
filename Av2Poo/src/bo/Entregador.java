@@ -36,7 +36,7 @@ public class Entregador {
 		this.placa = placa;
     }
     
-    public int getHabilitacao() {
+    public String getHabilitacao() {
 		return habilitacao;
 	}
 	public void sethabilitacao(int habilitacao) {

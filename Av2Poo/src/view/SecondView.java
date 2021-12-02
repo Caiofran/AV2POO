@@ -18,10 +18,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import bo.Habilidades;
+import bo.Entregador;
 import bo.Missao;
 import bo.Ninja;
-import controller.HabilidadesController;
+import controller.EntregadorController;
 import controller.MissaoController;
 import controller.NinjaController;
 import jdbc.ConnectionFactory;
