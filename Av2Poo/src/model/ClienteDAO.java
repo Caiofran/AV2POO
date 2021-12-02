@@ -1,6 +1,6 @@
 package model;
 
-import bo.Ninja;
+import bo.Cliente;
 import jdbc.ConnectionFactory;
 
 import java.sql.Connection;
@@ -10,23 +10,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NinjaDAO {
-	public void create(Ninja ninja) {
+public class ClienteDAO {
+	public void create(Cliente cliente) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "INSERT INTO NINJA(MATRICULA, NOME, IDADE, RANKING, TIPO_SANGUINEO) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO CLIENTE(NOME, ENDERECO, TELEFONE, EMAIL, FORMA_DE_PAGAMENTO) VALUES (?, ?, ?, ?, ?)";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(1, ninja.getMatricula()); // primeiro parametro da query
-			stmt.setString(2, ninja.getNome());
-			stmt.setInt(3, ninja.getIdade());
-			stmt.setString(4, ninja.getRanking());
-			stmt.setString(5, ninja.getTipoSanguineo());
+			stmt.setString(1, cliente.getNome()); // primeiro parametro da query
+			stmt.setString(2, cliente.getEndereco());
+			stmt.setInt(3, cliente.getTelefone());
+			stmt.setString(4, cliente.getEmail());
+			stmt.setString(5, cliente.getForma_de_pagamento());
 
 			stmt.executeUpdate();
-			System.out.println("[NinjaDAO] Ninja cadastrado com sucesso");
+			System.out.println("[ClienteDAO] Cliente cadastrado com sucesso");
 
 		} catch (SQLException e) {
 			System.out.println("Erro ao tentar inserir informações: " + e.getMessage());
@@ -35,18 +35,18 @@ public class NinjaDAO {
 		}
 	}
 
-	public void delete(Ninja ninja) {
+	public void delete(Cliente cliente) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
-		String sql = "DELETE FROM db_system.NINJA WHERE MATRICULA = ?";
+		String sql = "DELETE FROM db_system.CLIENTE WHERE NOME = ?";
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(1, ninja.getMatricula()); // primeiro parametro da query
+			stmt.setString(1, cliente.getNome()); // primeiro parametro da query
 
 			stmt.executeUpdate();
-			System.out.println("[NinjaDAO] Ninja se tornou Renegado");
+			System.out.println("[ClienteDAO] Ninja se tornou Renegado");
 
 		} catch (SQLException e) {
 			System.out.println("Erro na tentativa renegar Ninja: " + e.getMessage());
@@ -55,7 +55,7 @@ public class NinjaDAO {
 		}
 	}
 
-	public void update(Ninja ninja) {
+	public void update(Cliente cliente) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 
@@ -63,14 +63,14 @@ public class NinjaDAO {
 
 		try {
 			stmt = con.prepareStatement(sql); // instancia uma instrucao sql
-			stmt.setInt(1, ninja.getMatricula()); // primeiro parametro da query
-			stmt.setString(2, ninja.getNome());
-			stmt.setInt(3, ninja.getIdade());
-			stmt.setString(4, ninja.getRanking());
-			stmt.setString(5, ninja.getTipoSanguineo());
+			stmt.setString(1, cliente.getNome()); // primeiro parametro da query
+			stmt.setString(2, cliente.getEndereco());
+			stmt.setInt(3, cliente.getTelefone());
+			stmt.setString(4, cliente.getEmail());
+			stmt.setString(5, cliente.getForma_de_pagamento());
 
 			stmt.executeUpdate();
-			System.out.println("[NinjaDAO] As informações do ninja foram alteradas com sucesso!");
+			System.out.println("[ClienteDAO] As informações do cliente foram alteradas com sucesso!");
 
 		} catch (SQLException e) {
 			System.out.println("Erro ao tentar atualizar: " + e.getMessage());
@@ -79,29 +79,29 @@ public class NinjaDAO {
 		}
 	}
 
-	public List<Ninja> read() {
-		List<Ninja> listaNinja = new ArrayList<Ninja>();
+	public List<Cliente> read() {
+		List<Cliente> listaNinja = new ArrayList<Cliente>();
 
 		// ler banco mysql e preencher lista de alunos
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT MATRICULA, NOME, IDADE, RANKING, TIPO_SANGUINEO FROM db_system.NINJA";
+		String sql = "SELECT NOME, ENDERECO, TELEFONE, EMAIL, FORMA_DE_PAGAMENTO FROM db_system.CLIENTE";
 
 		try {
 			stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				Ninja ninja = new Ninja();
-				ninja.setMatricula(rs.getInt("MATRICULA"));
-				ninja.setNome(rs.getString("NOME"));
-				ninja.setIdade(rs.getInt("IDADE"));
-				ninja.setRanking(rs.getString("RANKING"));
-				ninja.setTipoSanguineo(rs.getString("TIPO_SANGUINEO"));
+				Cliente cliente = new Cliente();
+				cliente.setNome(rs.getString("NOME"));
+				cliente.setEndereco(rs.getString("ENDERECO"));
+				cliente.setTelefone(rs.getInt("TELEFONE"));
+				cliente.setEmail(rs.getString("EMAIL"));
+				cliente.setForma_de_pagamento(rs.getString("FORMA_DE_PAGAMENTO"));
 
-				listaNinja.add(ninja);
+				listaNinja.add(cliente);
 			}
 
 		} catch (SQLException e) {

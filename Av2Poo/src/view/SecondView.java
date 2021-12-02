@@ -20,10 +20,10 @@ import javax.swing.JTextField;
 
 import bo.Habilidades;
 import bo.Missao;
-import bo.Ninja;
+import bo.Cliente;
 import controller.HabilidadesController;
 import controller.MissaoController;
-import controller.NinjaController;
+import controller.ClienteController;
 import jdbc.ConnectionFactory;
 import net.proteanit.sql.DbUtils;
 
@@ -80,110 +80,110 @@ public class SecondView extends JFrame {
 		tabbedPane.setBounds(10, 81, 394, 363);
 		getContentPane().add(tabbedPane);
 
-		JPanel panelshinobi = new JPanel();
-		tabbedPane.addTab("Shinobi", null, panelshinobi, null);
-		panelshinobi.setLayout(null);
+		JPanel panel = new JPanel();
+		tabbedPane.addTab("Shinobi", null, panel, null);
+		panel.setLayout(null);
 
 		textmat = new JTextField();
 		textmat.setBounds(184, 45, 180, 30);
-		panelshinobi.add(textmat);
+		panel.add(textmat);
 		textmat.setColumns(10);
 
 		textname = new JTextField();
 		textname.setBounds(184, 86, 180, 30);
-		panelshinobi.add(textname);
+		panel.add(textname);
 		textname.setColumns(10);
 
 		textyear = new JTextField();
 		textyear.setBounds(184, 129, 180, 30);
-		panelshinobi.add(textyear);
+		panel.add(textyear);
 		textyear.setColumns(10);
 
 		textrank = new JTextField();
 		textrank.setBounds(184, 170, 180, 30);
-		panelshinobi.add(textrank);
+		panel.add(textrank);
 		textrank.setColumns(10);
 
 		textblood = new JTextField();
 		textblood.setBounds(184, 211, 180, 30);
-		panelshinobi.add(textblood);
+		panel.add(textblood);
 		textblood.setColumns(10);
 
 		JButton btsend = new JButton("Enviar");
 		btsend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Ninja ninja = new Ninja();
-				ninja.setMatricula(Integer.parseInt(textmat.getText()));
-				ninja.setNome(textname.getText());
-				ninja.setIdade(Integer.parseInt(textyear.getText()));
-				ninja.setRanking(textrank.getText());
-				ninja.setTipoSanguineo(textblood.getText());
+				Cliente cliente = new Cliente();
+				cliente.setNome(textname.getText());
+				cliente.setEndereco(textyear.getText());
+				cliente.setTelefone(Integer.parseInt(textrank.getText()));
+				cliente.setEmail(textblood.getText());
+				cliente.setForma_de_pagamento(textblood.getText());
 
-				NinjaController ninjaInsert = new NinjaController();
-				ninjaInsert.create(ninja);
+				ClienteController clienteInsert = new ClienteController();
+				clienteInsert.create(cliente);
 			}
 		});
 		btsend.setBounds(298, 267, 66, 23);
-		panelshinobi.add(btsend);
-
-		JLabel lblNewLabel = new JLabel("Matricula:");
+		panel.add(btsend);
+		
+		JLabel lblNewLabel = new JLabel("Nome:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(10, 50, 106, 14);
-		panelshinobi.add(lblNewLabel);
+		panel.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Nome:");
+		JLabel lblNewLabel_1 = new JLabel("Endereço:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1.setBounds(10, 94, 67, 14);
-		panelshinobi.add(lblNewLabel_1);
+		panel.add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Idade:");
+		JLabel lblNewLabel_2 = new JLabel("Telefone:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_2.setBounds(10, 135, 67, 14);
-		panelshinobi.add(lblNewLabel_2);
+		panel.add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("Rank:");
+		JLabel lblNewLabel_3 = new JLabel("Email:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_3.setBounds(10, 176, 67, 14);
-		panelshinobi.add(lblNewLabel_3);
+		panel.add(lblNewLabel_3);
 
-		JLabel lblNewLabel_4 = new JLabel("Tipo Sanguineo:");
+		JLabel lblNewLabel_4 = new JLabel("Forma de Pagamento:");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_4.setBounds(10, 217, 164, 24);
-		panelshinobi.add(lblNewLabel_4);
+		panel.add(lblNewLabel_4);
 
-		JButton btdeleteshinobi = new JButton("Delete");
-		btdeleteshinobi.setBounds(184, 301, 76, 23);
-		panelshinobi.add(btdeleteshinobi);
-		btdeleteshinobi.addActionListener(new ActionListener() {
+		JButton btndelete = new JButton("Delete");
+		btndelete.setBounds(184, 301, 76, 23);
+		panel.add(btndelete);
+		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Ninja ninja = new Ninja();
-				ninja.setMatricula(Integer.parseInt(textmat.getText()));
+				Cliente cliente = new Cliente();
+				cliente.setNome(textname.getText());
 
-				NinjaController ninjaDelete = new NinjaController();
-				ninjaDelete.delete(ninja);
+				ClienteController clienteDelete = new ClienteController();
+				clienteDelete.delete(cliente);
 			}
 		});
 
-		JButton btupshinobi = new JButton("Update");
-		btupshinobi.setBounds(184, 267, 77, 23);
-		panelshinobi.add(btupshinobi);
-		btupshinobi.addActionListener(new ActionListener() {
+		JButton btnupdate = new JButton("Update");
+		btnupdate.setBounds(184, 267, 77, 23);
+		panel.add(btnupdate);
+		btnupdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Ninja ninja = new Ninja();
-				ninja.setMatricula(Integer.parseInt(textmat.getText()));
-				ninja.setNome(textname.getText());
-				ninja.setIdade(Integer.parseInt(textyear.getText()));
-				ninja.setRanking(textrank.getText());
-				ninja.setTipoSanguineo(textblood.getText());
+				Cliente cliente = new Cliente();
+				cliente.setNome(textname.getText());
+				cliente.setEndereco(textyear.getText());
+				cliente.setTelefone(Integer.parseInt(textrank.getText()));
+				cliente.setEmail(textblood.getText());
+				cliente.setForma_de_pagamento(textblood.getText());
 
-				NinjaController ninjaUpdate = new NinjaController();
-				ninjaUpdate.update(ninja);
+				ClienteController clienteUpdate = new ClienteController();
+				clienteUpdate.update(cliente);
 			}
 		});
 
-		JButton btselectshinobi = new JButton("Select");
-		btselectshinobi.setBounds(288, 301, 78, 23);
-		panelshinobi.add(btselectshinobi);
+		JButton btnselect = new JButton("Select");
+		btnselect.setBounds(288, 301, 78, 23);
+		panel.add(btnselect);
 
 		JPanel panelskills = new JPanel();
 		tabbedPane.addTab("Habilidades", null, panelskills, null);
@@ -391,10 +391,10 @@ public class SecondView extends JFrame {
 		scrollPane.setBounds(479, 100, 536, 344);
 		getContentPane().add(scrollPane);
 
-		btselectshinobi.addActionListener(new ActionListener() {
+		btnselect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query = "SELECT * FROM db_system.NINJA";
+					String query = "SELECT * FROM db_system.CLIENTE";
 					PreparedStatement pst = con.prepareStatement(query);
 					ResultSet result = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(result));
