@@ -126,27 +126,27 @@ public class SecondView extends JFrame {
 		btsend.setBounds(298, 267, 66, 23);
 		panel.add(btsend);
 		// FAZER ALTERAÇÃO DOS NOMES DE CADA CAMPO
-		JLabel lblNewLabel = new JLabel("Matricula:");
+		JLabel lblNewLabel = new JLabel("Nome:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(10, 50, 106, 14);
 		panel.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Nome:");
+		JLabel lblNewLabel_1 = new JLabel("Endereço:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1.setBounds(10, 94, 67, 14);
 		panel.add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Idade:");
+		JLabel lblNewLabel_2 = new JLabel("Telefone:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_2.setBounds(10, 135, 67, 14);
 		panel.add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("Rank:");
+		JLabel lblNewLabel_3 = new JLabel("Email:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_3.setBounds(10, 176, 67, 14);
 		panel.add(lblNewLabel_3);
 
-		JLabel lblNewLabel_4 = new JLabel("Tipo Sanguineo:");
+		JLabel lblNewLabel_4 = new JLabel("Forma de Pagamento:");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_4.setBounds(10, 217, 164, 24);
 		panel.add(lblNewLabel_4);
@@ -170,11 +170,6 @@ public class SecondView extends JFrame {
 		btnupdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Cliente cliente = new Cliente();
-				// cliente.setMatricula(Integer.parseInt(textmat.getText()));
-				// cliente.setNome(textname.getText());
-				// cliente.setIdade(Integer.parseInt(textyear.getText()));
-				// cliente.setRanking(textrank.getText());
-				// cliente.setTipoSanguineo(textblood.getText());
 				cliente.setNome(textname.getText());
 				cliente.setEndereco(textyear.getText());
 				cliente.setTelefone(Integer.parseInt(textrank.getText()));
